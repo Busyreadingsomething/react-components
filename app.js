@@ -11,7 +11,9 @@ class GroceryItems extends React.Component{
     // an object literal
     this.state = {
       done: false,
-      bold: false
+      bold: false,
+      color: false,
+      back: false
     };
   }
 
@@ -33,7 +35,9 @@ class GroceryItems extends React.Component{
   // uses setState to change the done property
   onListItemHover() {
     this.setState({
-      bold: !this.state.bold
+      bold: !this.state.bold,
+      color: !this.state.color,
+      back: !this.state.back
     });
   }
 
@@ -47,7 +51,9 @@ class GroceryItems extends React.Component{
     // the results depend on the condition of the state you are observing
     var style = {
       textDecoration: this.state.done ? 'line-through' : 'none',
-      fontWeight: this.state.bold ? 'bold' : 'normal'
+      fontWeight: this.state.bold ? 'bold' : 'normal',
+      color: this.state.color ? `rgb(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)})` : 'black',
+      backgroundColor: this.state.back ? 'yellow' : 'white'
     };
 
     // the returned component has the style set to the element
@@ -87,7 +93,7 @@ var List = (props) => {
 //component format
 // declare the views with "<ViewName />" format
 
-let list = ['Half Gallon of Whole Milke', 'ChocolateCereal', 'Stick of butter', 'Loaf of bread', 'Strawberry IceCream'];
+let list = ['Half Gallon of Whole Milk', 'Chocolate Cereal', 'Stick of butter', 'Loaf of bread', 'Strawberry IceCream'];
 
 var GroceryList = () => (
   <div id='gorcery'>
